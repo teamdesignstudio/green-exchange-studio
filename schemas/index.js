@@ -12,6 +12,7 @@ import page from "./documents/page";
 import category from "./documents/category";
 import article from "./documents/article";
 import author from "./documents/author";
+import careers from "./documents/careers";
 
 // Object schemas
 import blockContent from "./objects/blockContent";
@@ -41,6 +42,7 @@ export const schemaTypes = [
   category,
   privacyPolicy,
   givingBack,
+  careers,
   page,
   // Object types
   hero,
