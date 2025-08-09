@@ -114,6 +114,12 @@ export default {
       fieldset: "joinTeam",
     },
     {
+      name: "joinTeamLink",
+      type: "url",
+      title: "Link",
+      fieldset: "joinTeam",
+    },
+    {
       name: "description",
       type: "text",
       title: "Description",
