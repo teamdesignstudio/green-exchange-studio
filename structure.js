@@ -18,6 +18,9 @@ const hiddenDocTypes = (listItem) =>
     "privacyPolicy",
     "givingBack",
     "careers",
+    "listing",
+    "trading",
+    "regulatory",
   ].includes(listItem.getId());
 
 export const structure = structureTool({
@@ -28,22 +31,34 @@ export const structure = structureTool({
       .title("Content")
       .items([
         S.documentListItem().id("home").schemaType("home").title("Home"),
-        S.documentListItem().id("about").schemaType("about").title("About"),
-        S.documentListItem().id("team").schemaType("team").title("Team"),
-        S.documentListItem().id("news").schemaType("news").title("News"),
         S.documentListItem()
           .id("givingBack")
           .schemaType("givingBack")
-          .title("Giving Back"),
+          .title("Vision"),
+        S.documentListItem()
+          .id("listing")
+          .schemaType("listing")
+          .title("Listing"),
+        S.documentListItem()
+          .id("trading")
+          .schemaType("trading")
+          .title("Trading"),
+        S.documentListItem()
+          .id("regulatory")
+          .schemaType("regulatory")
+          .title("Regulatory"),
+        S.documentListItem().id("team").schemaType("team").title("Team"),
+        S.documentListItem().id("news").schemaType("news").title("News"),
         S.documentListItem()
           .id("careers")
           .schemaType("careers")
           .title("Careers"),
-        S.documentListItem().id("faq").schemaType("faq").title("FAQ"),
+        S.documentListItem().id("about").schemaType("about").title("About"),
         S.documentListItem()
           .id("contact")
           .schemaType("contact")
           .title("Contact"),
+        S.documentListItem().id("faq").schemaType("faq").title("FAQ"),
         S.documentListItem()
           .id("privacyPolicy")
           .schemaType("privacyPolicy")

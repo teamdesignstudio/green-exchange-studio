@@ -13,6 +13,9 @@ import category from "./documents/category";
 import article from "./documents/article";
 import author from "./documents/author";
 import careers from "./documents/careers";
+import listing from "./documents/listing";
+import trading from "./documents/trading";
+import regulatory from "./documents/regulatory";
 
 // Object schemas
 import blockContent from "./objects/blockContent";
@@ -27,6 +30,8 @@ import textSection from "./objects/textSection";
 import cta from "./objects/cta";
 import iconRowItem from "./objects/iconRowItem";
 import podcastPlayer from "./objects/podcastPlayer";
+import regulationItem from "./objects/documentItem";
+import regulationModule from "./objects/documentModule";
 
 export const schemaTypes = [
   // Document types
@@ -44,6 +49,9 @@ export const schemaTypes = [
   givingBack,
   careers,
   page,
+  listing,
+  trading,
+  regulatory,
   // Object types
   hero,
   imageSection,
@@ -57,4 +65,6 @@ export const schemaTypes = [
   cta,
   iconRowItem,
   podcastPlayer,
+  regulationItem,
+  regulationModule,
 ];
