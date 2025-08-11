@@ -73,6 +73,12 @@ export default {
         },
       ],
     },
+    {
+      name: "yourImpactLink",
+      type: "url",
+      title: "Link",
+      fieldset: "yourImpact",
+    },
 
     // Why Work at GIX Section
     {
