@@ -76,5 +76,11 @@ export default {
       name: "footerContent",
       type: "blockContent",
     },
+    {
+      title: "Get In Touch Link",
+      name: "getInTouchLink",
+      type: "cta",
+      description: "This will set the site-wide Get In Touch module's link",
+    },
   ],
 };
