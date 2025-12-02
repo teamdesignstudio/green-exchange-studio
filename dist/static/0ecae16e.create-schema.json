@@ -1,0 +1,2410 @@
+[
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string",
+        "title": "Site title"
+      },
+      {
+        "name": "enableBanner",
+        "type": "boolean",
+        "fieldset": "banner"
+      },
+      {
+        "name": "bannerText",
+        "type": "string",
+        "fieldset": "banner"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "fieldsets": [
+          {
+            "name": "link"
+          }
+        ],
+        "name": "bannerCta",
+        "type": "cta",
+        "title": "Banner CTA",
+        "fieldset": "banner"
+      },
+      {
+        "description": "This text will be displayed in the footer on all pages of the site.",
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "footerContent",
+        "type": "array"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "The main site url. Used to create canonical url",
+        "name": "url",
+        "type": "url",
+        "title": "URL"
+      },
+      {
+        "description": "Should be a valid bcp47 language code like en, en-US, no or nb-NO",
+        "name": "lang",
+        "type": "string",
+        "title": "Site language"
+      },
+      {
+        "description": "Best choice is to use an SVG where the color is set with currentColor",
+        "fields": [
+          {
+            "options": {
+              "isHighlighted": true
+            },
+            "description": "Important for SEO and accessiblity.",
+            "name": "alt",
+            "type": "string",
+            "title": "Alternative text"
+          }
+        ],
+        "name": "logo",
+        "type": "image",
+        "title": "Brand logo"
+      }
+    ],
+    "fieldsets": [
+      {
+        "name": "banner",
+        "description": "This banner will be displayed on the top of each page",
+        "options": {
+          "collapsible": true,
+          "collapsed": false
+        }
+      }
+    ],
+    "name": "siteSettings",
+    "type": "document",
+    "title": "Site settings"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "hero",
+        "type": "hero"
+      },
+      {
+        "name": "imageSectionOne",
+        "type": "imageSection"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              },
+              {
+                "flag": "length",
+                "constraint": 4
+              }
+            ],
+            "level": "error",
+            "message": "This section requires four items"
+          }
+        ],
+        "of": [
+          {
+            "type": "iconRowItem",
+            "title": "Icon with description"
+          }
+        ],
+        "name": "iconRow",
+        "type": "array"
+      },
+      {
+        "name": "imageWide",
+        "type": "imageSection",
+        "title": "Full-Width Image Section"
+      },
+      {
+        "name": "imageSectionTwo",
+        "type": "imageSection"
+      },
+      {
+        "description": "This description populates meta-tags on the webpage",
+        "name": "description",
+        "type": "text",
+        "fieldset": "metadata"
+      },
+      {
+        "description": "Image for sharing previews on Facebook, Twitter etc.",
+        "name": "openGraphImage",
+        "type": "image",
+        "fieldset": "metadata"
+      }
+    ],
+    "fieldsets": [
+      {
+        "name": "metadata",
+        "title": "SEO & metadata"
+      }
+    ],
+    "name": "home",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "hero",
+        "type": "hero"
+      },
+      {
+        "of": [
+          {
+            "type": "textGridItem"
+          }
+        ],
+        "name": "textGrid",
+        "type": "array"
+      },
+      {
+        "name": "textSection",
+        "type": "textSection"
+      },
+      {
+        "name": "imageSectionOne",
+        "type": "imageSection"
+      },
+      {
+        "name": "imageSectionTwo",
+        "type": "imageSection"
+      },
+      {
+        "description": "This description populates meta-tags on the webpage",
+        "name": "description",
+        "type": "text",
+        "fieldset": "metadata"
+      },
+      {
+        "description": "Image for sharing previews on Facebook, Twitter etc.",
+        "name": "openGraphImage",
+        "type": "image",
+        "fieldset": "metadata"
+      }
+    ],
+    "fieldsets": [
+      {
+        "name": "metadata",
+        "title": "SEO & metadata"
+      }
+    ],
+    "name": "about",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "hero",
+        "type": "hero"
+      },
+      {
+        "of": [
+          {
+            "type": "teamMember"
+          }
+        ],
+        "name": "team",
+        "type": "array",
+        "title": "GIX Team"
+      },
+      {
+        "of": [
+          {
+            "type": "teamMember"
+          }
+        ],
+        "name": "board",
+        "type": "array",
+        "title": "Advisors and Board of Directors"
+      },
+      {
+        "description": "This description populates meta-tags on the webpage",
+        "name": "description",
+        "type": "text",
+        "fieldset": "metadata"
+      },
+      {
+        "description": "Image for sharing previews on Facebook, Twitter etc.",
+        "name": "openGraphImage",
+        "type": "image",
+        "fieldset": "metadata"
+      }
+    ],
+    "fieldsets": [
+      {
+        "name": "metadata",
+        "title": "SEO & metadata"
+      }
+    ],
+    "name": "team",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "hero",
+        "type": "hero"
+      },
+      {
+        "description": "This description populates meta-tags on the webpage",
+        "name": "description",
+        "type": "text",
+        "fieldset": "metadata"
+      },
+      {
+        "description": "Image for sharing previews on Facebook, Twitter etc.",
+        "name": "openGraphImage",
+        "type": "image",
+        "fieldset": "metadata"
+      }
+    ],
+    "fieldsets": [
+      {
+        "name": "metadata",
+        "title": "SEO & metadata"
+      }
+    ],
+    "name": "news",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "hero",
+        "type": "hero"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "heading",
+                "type": "string"
+              },
+              {
+                "of": [
+                  {
+                    "type": "faqItem",
+                    "title": "FAQ Questions"
+                  }
+                ],
+                "name": "questions",
+                "type": "array"
+              }
+            ],
+            "type": "object"
+          }
+        ],
+        "name": "faqContent",
+        "type": "array",
+        "title": "FAQ Sections"
+      },
+      {
+        "of": [
+          {
+            "type": "faqItem",
+            "title": "FAQ Questions"
+          }
+        ],
+        "name": "general",
+        "type": "array",
+        "title": "General Questions"
+      },
+      {
+        "of": [
+          {
+            "type": "faqItem",
+            "title": "FAQ Questions"
+          }
+        ],
+        "name": "issuers",
+        "type": "array",
+        "title": "Issuer Questions"
+      },
+      {
+        "of": [
+          {
+            "type": "faqItem",
+            "title": "FAQ Questions"
+          }
+        ],
+        "name": "investors",
+        "type": "array",
+        "title": "Investor Questions"
+      },
+      {
+        "description": "This description populates meta-tags on the webpage",
+        "name": "description",
+        "type": "text",
+        "fieldset": "metadata"
+      },
+      {
+        "description": "Image for sharing previews on Facebook, Twitter etc.",
+        "name": "openGraphImage",
+        "type": "image",
+        "fieldset": "metadata"
+      }
+    ],
+    "fieldsets": [
+      {
+        "name": "metadata",
+        "title": "SEO & metadata"
+      }
+    ],
+    "name": "faq",
+    "type": "document",
+    "title": "FAQ"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "hero",
+        "type": "hero"
+      },
+      {
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "info",
+        "type": "array"
+      },
+      {
+        "description": "This description populates meta-tags on the webpage",
+        "name": "description",
+        "type": "text",
+        "fieldset": "metadata"
+      },
+      {
+        "description": "Image for sharing previews on Facebook, Twitter etc.",
+        "name": "openGraphImage",
+        "type": "image",
+        "fieldset": "metadata"
+      }
+    ],
+    "fieldsets": [
+      {
+        "name": "metadata",
+        "title": "SEO & metadata"
+      }
+    ],
+    "name": "contact",
+    "type": "document"
+  },
+  {
+    "initialValue": {
+      "isPodcast": false,
+      "downloadTitle": "Download PDF"
+    },
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "source": "title",
+          "maxLength": 96
+        },
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "slug",
+        "type": "slug"
+      },
+      {
+        "initialValue": false,
+        "description": "This toggle will enable comments on this page",
+        "name": "isPodcast",
+        "type": "boolean",
+        "title": "Is this article about a podcast episode?"
+      },
+      {
+        "name": "lede",
+        "type": "text"
+      },
+      {
+        "to": [
+          {
+            "type": "author"
+          }
+        ],
+        "name": "author",
+        "type": "reference"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "options": {
+              "isHighlighted": true
+            },
+            "description": "Important for SEO and accessibility",
+            "name": "alt",
+            "type": "string",
+            "title": "Alternative Text"
+          }
+        ],
+        "name": "mainImage",
+        "type": "image",
+        "title": "Main image"
+      },
+      {
+        "of": [
+          {
+            "to": [
+              {
+                "type": "category"
+              }
+            ],
+            "type": "reference",
+            "title": "Reference to category"
+          }
+        ],
+        "name": "categories",
+        "type": "array"
+      },
+      {
+        "name": "publishedAt",
+        "type": "datetime",
+        "title": "Published at"
+      },
+      {
+        "name": "body",
+        "type": "blockContent"
+      },
+      {
+        "initialValue": "Download PDF",
+        "description": "The text that will appear on the download button. Defaults to \"Download PDF.\"",
+        "name": "downloadTitle",
+        "type": "string",
+        "title": "Button Text",
+        "fieldset": "download"
+      },
+      {
+        "description": "Upload a file here to make the download button appear on the site.",
+        "name": "downloadFile",
+        "type": "file",
+        "title": "PDF File",
+        "fieldset": "download"
+      }
+    ],
+    "fieldsets": [
+      {
+        "name": "download",
+        "title": "Download Button"
+      }
+    ],
+    "name": "article",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "name": "image",
+        "type": "image"
+      },
+      {
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "bio",
+        "type": "array"
+      }
+    ],
+    "name": "author",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "description",
+        "type": "text"
+      }
+    ],
+    "name": "category",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "hero",
+        "type": "hero"
+      },
+      {
+        "name": "textSection",
+        "type": "textSection"
+      },
+      {
+        "description": "This description populates meta-tags on the webpage",
+        "name": "description",
+        "type": "text",
+        "fieldset": "metadata"
+      },
+      {
+        "description": "Image for sharing previews on Facebook, Twitter etc.",
+        "name": "openGraphImage",
+        "type": "image",
+        "fieldset": "metadata"
+      }
+    ],
+    "fieldsets": [
+      {
+        "name": "metadata",
+        "title": "SEO & metadata"
+      }
+    ],
+    "name": "privacyPolicy",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "hero",
+        "type": "hero"
+      },
+      {
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "textBlock1",
+        "type": "array",
+        "title": "Text Block"
+      },
+      {
+        "name": "reasonsBlockTitle",
+        "type": "string",
+        "title": "Heading",
+        "fieldset": "reasonsBlock"
+      },
+      {
+        "of": [
+          {
+            "type": "text"
+          }
+        ],
+        "name": "reasonsBlockArr",
+        "type": "array",
+        "title": "Reasons Block",
+        "fieldset": "reasonsBlock"
+      },
+      {
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "textBlock2",
+        "type": "array",
+        "title": "Text Block"
+      },
+      {
+        "options": {
+          "layout": "grid"
+        },
+        "of": [
+          {
+            "type": "image"
+          }
+        ],
+        "name": "logoGrid",
+        "type": "array",
+        "title": "Organization Logos"
+      },
+      {
+        "name": "imageSection",
+        "type": "imageSection"
+      },
+      {
+        "description": "This description populates meta-tags on the webpage",
+        "name": "description",
+        "type": "text",
+        "fieldset": "metadata"
+      },
+      {
+        "description": "Image for sharing previews on Facebook, Twitter etc.",
+        "name": "openGraphImage",
+        "type": "image",
+        "fieldset": "metadata"
+      }
+    ],
+    "fieldsets": [
+      {
+        "name": "reasonsBlock"
+      },
+      {
+        "name": "metadata",
+        "title": "SEO & metadata"
+      }
+    ],
+    "name": "givingBack",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "options": {
+          "editModal": "popover"
+        },
+        "of": [
+          {
+            "type": "hero"
+          },
+          {
+            "type": "imageSection",
+            "title": "Image with Text"
+          },
+          {
+            "type": "imageWide",
+            "title": "Full-Width Image"
+          }
+        ],
+        "name": "content",
+        "type": "array",
+        "title": "Page sections"
+      },
+      {
+        "description": "This description populates meta-tags on the webpage",
+        "name": "description",
+        "type": "text",
+        "fieldset": "metadata"
+      },
+      {
+        "description": "Image for sharing previews on Facebook, Twitter etc.",
+        "name": "openGraphImage",
+        "type": "image",
+        "fieldset": "metadata"
+      }
+    ],
+    "fieldsets": [
+      {
+        "name": "metadata",
+        "title": "SEO & metadata"
+      }
+    ],
+    "name": "page",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "hero",
+        "type": "hero"
+      },
+      {
+        "of": [
+          {
+            "type": "regulationModule"
+          }
+        ],
+        "name": "modules",
+        "type": "array"
+      },
+      {
+        "description": "This description populates meta-tags on the webpage",
+        "name": "description",
+        "type": "text",
+        "fieldset": "metadata"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Image for sharing previews on Facebook, Twitter etc.",
+        "name": "openGraphImage",
+        "type": "image",
+        "fieldset": "metadata"
+      }
+    ],
+    "fieldsets": [
+      {
+        "name": "metadata",
+        "title": "SEO & metadata"
+      }
+    ],
+    "name": "listing",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "name": "hero",
+        "type": "hero"
+      },
+      {
+        "of": [
+          {
+            "type": "regulationModule"
+          }
+        ],
+        "name": "modules",
+        "type": "array"
+      },
+      {
+        "description": "This description populates meta-tags on the webpage",
+        "name": "description",
+        "type": "text",
+        "fieldset": "metadata"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Image for sharing previews on Facebook, Twitter etc.",
+        "name": "openGraphImage",
+        "type": "image",
+        "fieldset": "metadata"
+      }
+    ],
+    "fieldsets": [
+      {
+        "name": "metadata",
+        "title": "SEO & metadata"
+      }
+    ],
+    "name": "trading",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "content",
+        "type": "array",
+        "title": "Description"
+      },
+      {
+        "name": "hero",
+        "type": "hero"
+      },
+      {
+        "of": [
+          {
+            "type": "documentCategory"
+          }
+        ],
+        "name": "categories",
+        "type": "array",
+        "title": "Document Categories"
+      },
+      {
+        "description": "This description populates meta-tags on the webpage",
+        "name": "description",
+        "type": "text",
+        "fieldset": "metadata"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "description": "Image for sharing previews on Facebook, Twitter etc.",
+        "name": "openGraphImage",
+        "type": "image",
+        "fieldset": "metadata"
+      }
+    ],
+    "fieldsets": [
+      {
+        "name": "metadata",
+        "title": "SEO & metadata"
+      }
+    ],
+    "name": "regulatory",
+    "type": "document"
+  },
+  {
+    "fields": [
+      {
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "options": {
+              "isHighlighted": true
+            },
+            "description": "Important for SEO and accessibility",
+            "name": "alt",
+            "type": "string",
+            "title": "Alternative Text"
+          }
+        ],
+        "name": "image",
+        "type": "image"
+      }
+    ],
+    "name": "hero",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "name": "text",
+        "type": "text"
+      },
+      {
+        "name": "image",
+        "type": "image"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "fieldsets": [
+          {
+            "name": "link"
+          }
+        ],
+        "name": "cta",
+        "type": "cta",
+        "title": "Call to action"
+      }
+    ],
+    "name": "imageSection",
+    "type": "object",
+    "title": "Image with Text"
+  },
+  {
+    "fields": [
+      {
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "name": "image",
+        "type": "image"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "custom"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "fieldsets": [
+          {
+            "name": "link"
+          }
+        ],
+        "name": "cta",
+        "type": "cta",
+        "title": "Call to action"
+      }
+    ],
+    "name": "imageWide",
+    "type": "object",
+    "title": "Full-Width Image"
+  },
+  {
+    "of": [
+      {
+        "marks": {
+          "annotations": [
+            {
+              "fields": [
+                {
+                  "validation": [
+                    {
+                      "rules": [
+                        {
+                          "flag": "uri",
+                          "constraint": {
+                            "options": {
+                              "scheme": [
+                                "/^http$/",
+                                "/^https$/"
+                              ],
+                              "allowRelative": false,
+                              "relativeOnly": false,
+                              "allowCredentials": false
+                            }
+                          }
+                        }
+                      ],
+                      "level": "error"
+                    }
+                  ],
+                  "name": "href",
+                  "type": "url",
+                  "title": "URL"
+                }
+              ],
+              "name": "link",
+              "type": "object",
+              "title": "URL"
+            }
+          ],
+          "decorators": [
+            {
+              "value": "strong",
+              "title": "Strong"
+            },
+            {
+              "value": "em",
+              "title": "Emphasis"
+            }
+          ]
+        },
+        "lists": [
+          {
+            "value": "bullet",
+            "title": "Bullet"
+          },
+          {
+            "value": "number",
+            "title": "Number"
+          }
+        ],
+        "styles": [
+          {
+            "value": "normal",
+            "title": "Normal"
+          },
+          {
+            "value": "h1",
+            "title": "H1"
+          },
+          {
+            "value": "h2",
+            "title": "H2"
+          },
+          {
+            "value": "h3",
+            "title": "H3"
+          },
+          {
+            "value": "h4",
+            "title": "H4"
+          },
+          {
+            "value": "small",
+            "title": "Small"
+          },
+          {
+            "value": "blockquote",
+            "title": "Quote"
+          }
+        ],
+        "of": [],
+        "type": "block"
+      },
+      {
+        "options": {
+          "hotspot": true
+        },
+        "fields": [
+          {
+            "options": {
+              "isHighlighted": true
+            },
+            "name": "caption",
+            "type": "string"
+          },
+          {
+            "options": {
+              "isHighlighted": true
+            },
+            "description": "Important for SEO and accessibility",
+            "name": "alt",
+            "type": "string",
+            "title": "Alternative Text"
+          }
+        ],
+        "type": "image"
+      },
+      {
+        "type": "podcastPlayer"
+      }
+    ],
+    "name": "blockContent",
+    "type": "array"
+  },
+  {
+    "fields": [
+      {
+        "name": "question",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "answer",
+        "type": "array"
+      }
+    ],
+    "name": "faqItem",
+    "type": "object",
+    "title": "FAQ Questions"
+  },
+  {
+    "fields": [
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "role",
+        "type": "string"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "linkedIn",
+        "type": "url",
+        "title": "LinkedIn URL"
+      },
+      {
+        "name": "bio",
+        "type": "text"
+      },
+      {
+        "name": "image",
+        "type": "image",
+        "title": "Portrait"
+      }
+    ],
+    "name": "teamMember",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "name": "text",
+        "type": "text"
+      }
+    ],
+    "name": "textGridItem",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "marks": {
+              "annotations": [
+                {
+                  "i18nTitleKey": "inputs.portable-text.annotation.link",
+                  "options": {
+                    "modal": {
+                      "type": "popover"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "validation": [
+                        {
+                          "rules": [
+                            {
+                              "flag": "uri",
+                              "constraint": {
+                                "options": {
+                                  "scheme": [
+                                    "/^http$/",
+                                    "/^https$/",
+                                    "/^tel$/",
+                                    "/^mailto$/"
+                                  ],
+                                  "allowRelative": true,
+                                  "relativeOnly": false,
+                                  "allowCredentials": false
+                                }
+                              }
+                            }
+                          ],
+                          "level": "error"
+                        }
+                      ],
+                      "description": "A valid web, email, phone, or relative link.",
+                      "name": "href",
+                      "type": "url",
+                      "title": "Link"
+                    }
+                  ],
+                  "name": "link",
+                  "type": "object"
+                }
+              ],
+              "decorators": [
+                {
+                  "value": "strong",
+                  "title": "Strong"
+                },
+                {
+                  "value": "em",
+                  "title": "Italic"
+                },
+                {
+                  "value": "code",
+                  "title": "Code"
+                },
+                {
+                  "value": "underline",
+                  "title": "Underline"
+                },
+                {
+                  "value": "strike-through",
+                  "title": "Strike"
+                }
+              ]
+            },
+            "lists": [
+              {
+                "value": "bullet",
+                "title": "Bulleted list"
+              },
+              {
+                "value": "number",
+                "title": "Numbered list"
+              }
+            ],
+            "styles": [
+              {
+                "value": "normal",
+                "title": "Normal"
+              },
+              {
+                "value": "h1",
+                "title": "Heading 1"
+              },
+              {
+                "value": "h2",
+                "title": "Heading 2"
+              },
+              {
+                "value": "h3",
+                "title": "Heading 3"
+              },
+              {
+                "value": "h4",
+                "title": "Heading 4"
+              },
+              {
+                "value": "h5",
+                "title": "Heading 5"
+              },
+              {
+                "value": "h6",
+                "title": "Heading 6"
+              },
+              {
+                "value": "blockquote",
+                "title": "Quote"
+              }
+            ],
+            "of": [],
+            "type": "block"
+          }
+        ],
+        "name": "body",
+        "type": "array"
+      }
+    ],
+    "name": "textSection",
+    "type": "object"
+  },
+  {
+    "validation": [
+      {
+        "rules": [
+          {
+            "flag": "custom"
+          }
+        ],
+        "level": "error"
+      }
+    ],
+    "fields": [
+      {
+        "name": "title",
+        "type": "string"
+      },
+      {
+        "description": "Use this to link between pages on the website",
+        "to": [
+          {
+            "type": "home"
+          },
+          {
+            "type": "about"
+          },
+          {
+            "type": "team"
+          },
+          {
+            "type": "news"
+          },
+          {
+            "type": "faq"
+          },
+          {
+            "type": "contact"
+          },
+          {
+            "initialValue": {
+              "isPodcast": false,
+              "downloadTitle": "Download PDF"
+            },
+            "type": "article"
+          }
+        ],
+        "name": "route",
+        "type": "reference",
+        "title": "Internal link",
+        "fieldset": "link"
+      },
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "uri",
+                "constraint": {
+                  "options": {
+                    "scheme": [
+                      "/^http$/",
+                      "/^https$/"
+                    ],
+                    "allowRelative": false,
+                    "relativeOnly": false,
+                    "allowCredentials": false
+                  }
+                }
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "link",
+        "type": "url",
+        "title": "External link",
+        "fieldset": "link"
+      }
+    ],
+    "fieldsets": [
+      {
+        "name": "link"
+      }
+    ],
+    "name": "cta",
+    "type": "object",
+    "title": "Call to action"
+  },
+  {
+    "fields": [
+      {
+        "description": "SVG is the preferred format",
+        "name": "icon",
+        "type": "image"
+      },
+      {
+        "description": "SVG is the preferred format",
+        "name": "symbol",
+        "type": "image"
+      },
+      {
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "name": "text",
+        "type": "text"
+      }
+    ],
+    "name": "iconRowItem",
+    "type": "object",
+    "title": "Icon with description"
+  },
+  {
+    "fields": [
+      {
+        "description": "Paste the episode embed code",
+        "name": "url",
+        "type": "string",
+        "title": "Podcast Episode URL"
+      }
+    ],
+    "name": "podcastPlayer",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "fields": [
+              {
+                "name": "fileHeading",
+                "type": "string",
+                "title": "File"
+              },
+              {
+                "name": "date",
+                "type": "date"
+              },
+              {
+                "name": "description",
+                "type": "text"
+              },
+              {
+                "options": {
+                  "list": [
+                    {
+                      "title": "PDF Upload",
+                      "value": "pdf"
+                    },
+                    {
+                      "title": "External Link",
+                      "value": "link"
+                    }
+                  ],
+                  "layout": "radio"
+                },
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "valid",
+                        "constraint": [
+                          "pdf",
+                          "link"
+                        ]
+                      },
+                      {
+                        "flag": "presence",
+                        "constraint": "required"
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "name": "documentType",
+                "type": "string"
+              },
+              {
+                "options": {
+                  "accept": ".pdf"
+                },
+                "hidden": "conditional",
+                "name": "pdfDocument",
+                "type": "file",
+                "title": "PDF Document"
+              },
+              {
+                "validation": [
+                  {
+                    "rules": [
+                      {
+                        "flag": "uri",
+                        "constraint": {
+                          "options": {
+                            "scheme": [
+                              "/^http$/",
+                              "/^https$/"
+                            ],
+                            "allowRelative": false,
+                            "relativeOnly": false,
+                            "allowCredentials": false
+                          }
+                        }
+                      }
+                    ],
+                    "level": "error"
+                  }
+                ],
+                "hidden": "conditional",
+                "name": "externalLink",
+                "type": "url"
+              }
+            ],
+            "type": "object",
+            "name": "regulationItem"
+          }
+        ],
+        "name": "items",
+        "type": "array"
+      }
+    ],
+    "name": "regulationModule",
+    "type": "object"
+  },
+  {
+    "fields": [
+      {
+        "validation": [
+          {
+            "rules": [
+              {
+                "flag": "presence",
+                "constraint": "required"
+              }
+            ],
+            "level": "error"
+          }
+        ],
+        "name": "heading",
+        "type": "string"
+      },
+      {
+        "of": [
+          {
+            "type": "regulationModule"
+          }
+        ],
+        "name": "modules",
+        "type": "array",
+        "title": "Sections"
+      }
+    ],
+    "name": "documentCategory",
+    "type": "object"
+  }
+]

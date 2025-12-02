@@ -40,6 +40,12 @@ export default {
 			fieldset: 'banner',
 		},
 		{
+			name: 'footerContent',
+			description: 'This text will be displayed in the footer on all pages of the site.',
+			type: 'array',
+			of: [{ type: 'block' }],
+		},
+		{
 			title: 'URL',
 			name: 'url',
 			type: 'url',
