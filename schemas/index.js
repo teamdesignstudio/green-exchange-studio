@@ -16,6 +16,7 @@ import careers from "./documents/careers";
 import listing from "./documents/listing";
 import trading from "./documents/trading";
 import regulatory from "./documents/regulatory";
+import traderAlerts from "./documents/traderAlerts";
 
 // Object schemas
 import blockContent from "./objects/blockContent";
@@ -52,6 +53,8 @@ export const schemaTypes = [
   listing,
   trading,
   regulatory,
+  traderAlerts,
+
   // Object types
   hero,
   imageSection,
