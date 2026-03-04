@@ -1,3 +1,7 @@
+// Global regulationItem type used by listing and trading pages (via regulationModule.js).
+// Note: A different inline definition of 'regulationItem' with additional fields
+// (fileHeading, date, description) exists in documentCategory.js for the regulatory page.
+// See the TODO in documentCategory.js for cleanup plan.
 export default {
   name: "regulationItem",
   title: "Regulation Item",

@@ -34,9 +34,7 @@ export default {
 				{
 					title: 'Small',
 					value: 'small',
-					blockEditor: {
-						render: smallRender,
-					},
+					component: smallRender,
 				},
 				{ title: 'Quote', value: 'blockquote' },
 			],
@@ -80,18 +78,12 @@ export default {
 					name: 'caption',
 					title: 'Caption',
 					type: 'string',
-					options: {
-						isHighlighted: true,
-					},
 				},
 				{
 					name: 'alt',
 					title: 'Alternative Text',
 					type: 'string',
 					description: 'Important for SEO and accessibility',
-					options: {
-						isHighlighted: true,
-					},
 				},
 			],
 		},

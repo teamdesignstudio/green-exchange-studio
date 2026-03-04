@@ -1,6 +1,3 @@
-// Global regulationModule type used by listing and trading pages.
-// Note: A different inline definition of 'regulationModule' exists in
-// documentCategory.js for the regulatory page. See the TODO there.
 export default {
 	name: 'regulationModule',
 	title: 'Regulation Module',
@@ -15,19 +12,27 @@ export default {
 		{
 			name: 'description',
 			title: 'Description',
-			type: 'array',
-			of: [{ type: 'block' }],
+			type: 'blockContent',
 		},
 		{
 			name: 'items',
-			title: 'Items',
+			title: 'Regulation Items',
 			type: 'array',
 			of: [{ type: 'regulationItem' }],
+			validation: (Rule) => Rule.min(1),
 		},
 	],
 	preview: {
 		select: {
-			title: 'heading',
+			heading: 'heading',
+			itemCount: 'items.length',
+		},
+		prepare(selection) {
+			const { heading, itemCount } = selection;
+			return {
+				title: heading,
+				subtitle: itemCount ? `${itemCount} items` : 'No items',
+			};
 		},
 	},
 };

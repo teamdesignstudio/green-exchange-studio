@@ -21,12 +21,24 @@ export default {
 			type: 'hero',
 		},
 		{
-			name: 'modules',
-			title: 'Regulation Modules',
+			name: 'content',
 			type: 'array',
-			of: [{ type: 'regulationModule' }],
-			description: 'Add modules containing regulation items for the regulatory page',
+			of: [{ type: 'block' }],
 		},
+		{
+			name: 'categories',
+			title: 'Document Categories',
+			desctiption: 'Add document categories for the Regulatory pages',
+			type: 'array',
+			of: [{ type: 'documentCategory' }],
+		},
+		// {
+		// 	name: 'modules',
+		// 	title: 'Regulation Modules',
+		// 	type: 'array',
+		// 	of: [{ type: 'regulationModule' }],
+		// 	description: 'Add modules containing regulation items for the regulatory page',
+		// },
 		{
 			name: 'description',
 			type: 'text',

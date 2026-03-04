@@ -21,9 +21,6 @@ export default {
 					title: 'Alternative Text',
 					type: 'string',
 					description: 'Important for SEO and accessibility',
-					options: {
-						isHighlighted: true, // <-- make this field easily accessible
-					},
 				},
 			],
 		},

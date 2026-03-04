@@ -27,7 +27,7 @@ export default {
 				//{ type: 'newsletter' },
 			],
 			options: {
-				editModal: 'popover',
+				modal: 'popover',
 				// sortable: 'false',
 			},
 		},
