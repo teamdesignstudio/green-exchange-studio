@@ -1,3 +1,5 @@
+import blocksToText from '../../lib/portabletextToText';
+
 export default {
 	name: 'faqItem',
 	title: 'FAQ Questions',
@@ -17,12 +19,13 @@ export default {
 	],
 	preview: {
 		select: {
-			title: 'question',
+			question: 'question',
+			answer: 'answer',
 		},
-		prepare({ title }) {
+		prepare({ question, answer }) {
 			return {
-				title,
-				subtitle: 'FAQ Question',
+				title: question,
+				subtitle: blocksToText(answer),
 			};
 		},
 	},
