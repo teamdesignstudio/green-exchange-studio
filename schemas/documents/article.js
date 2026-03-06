@@ -1,3 +1,10 @@
+const NEWS_RELEASES_ID = '22e495ab-d12b-4bf6-8449-afd9fac75551';
+
+const isNewsRelease = ({ document }) =>
+	document?.categories?.[0]?._ref === NEWS_RELEASES_ID;
+
+const isNotNewsRelease = ({ document }) => !isNewsRelease({ document });
+
 export default {
 	name: 'article',
 	title: 'Article',
@@ -20,6 +27,14 @@ export default {
 				source: 'title',
 				maxLength: 96,
 			},
+			hidden: isNewsRelease,
+		},
+		{
+			name: 'categories',
+			title: 'Category',
+			type: 'array',
+			of: [{ type: 'reference', to: { type: 'category' } }],
+			validation: (Rule) => Rule.required().max(1),
 		},
 		{
 			name: 'isPodcast',
@@ -27,17 +42,20 @@ export default {
 			description: 'This toggle will enable comments on this page',
 			type: 'boolean',
 			initialValue: false,
+			hidden: isNewsRelease,
 		},
 		{
 			name: 'lede',
 			title: 'Lede',
 			type: 'text',
+			hidden: isNewsRelease,
 		},
 		{
 			name: 'author',
 			title: 'Author',
 			type: 'reference',
 			to: { type: 'author' },
+			hidden: isNewsRelease,
 		},
 		{
 			name: 'mainImage',
@@ -54,12 +72,7 @@ export default {
 					description: 'Important for SEO and accessibility',
 				},
 			],
-		},
-		{
-			name: 'categories',
-			title: 'Categories',
-			type: 'array',
-			of: [{ type: 'reference', to: { type: 'category' } }],
+			hidden: isNewsRelease,
 		},
 		{
 			name: 'publishedAt',
@@ -70,6 +83,17 @@ export default {
 			name: 'body',
 			title: 'Body',
 			type: 'blockContent',
+			hidden: isNewsRelease,
+		},
+		{
+			name: 'pdfFile',
+			title: 'PDF File',
+			description: 'Upload the news release PDF',
+			type: 'file',
+			options: {
+				accept: '.pdf',
+			},
+			hidden: isNotNewsRelease,
 		},
 		{
 			name: 'downloadTitle',
@@ -78,6 +102,7 @@ export default {
 			type: 'string',
 			fieldset: 'download',
 			initialValue: 'Download PDF',
+			hidden: isNewsRelease,
 		},
 		{
 			name: 'downloadFile',
@@ -85,6 +110,7 @@ export default {
 			description: 'Upload a file here to make the download button appear on the site.',
 			type: 'file',
 			fieldset: 'download',
+			hidden: isNewsRelease,
 		},
 	],
 	initialValue: {

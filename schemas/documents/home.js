@@ -20,27 +20,35 @@ export default {
 			type: 'hero',
 		},
 		{
-			name: 'imageSectionOne',
-			title: 'Image Section One',
-			type: 'imageSection',
+			name: 'columnSectionOne',
+			type: 'threeColumnSection',
 		},
-		{
-			name: 'iconRow',
-			title: 'Icon Row',
-			type: 'array',
-			of: [{ type: 'iconRowItem' }],
-			validation: (Rule) => Rule.required().length(4).error('This section requires four items'),
-		},
+		// {
+		// 	name: 'imageSectionOne',
+		// 	title: 'Image Section One',
+		// 	type: 'imageSection',
+		// },
+		// {
+		// 	name: 'iconRow',
+		// 	title: 'Icon Row',
+		// 	type: 'array',
+		// 	of: [{ type: 'iconRowItem' }],
+		// 	validation: (Rule) => Rule.required().length(4).error('This section requires four items'),
+		// },
 		{
 			name: 'imageWide',
 			title: 'Full-Width Image Section',
 			type: 'imageSection',
 		},
 		{
-			name: 'imageSectionTwo',
-			title: 'Image Section Two',
-			type: 'imageSection',
+			name: 'columnSectionTwo',
+			type: 'threeColumnSection',
 		},
+		// {
+		// 	name: 'imageSectionTwo',
+		// 	title: 'Image Section Two',
+		// 	type: 'imageSection',
+		// },
 		{
 			name: 'description',
 			type: 'text',
