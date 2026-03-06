@@ -16,6 +16,7 @@ import careers from './documents/careers';
 import listing from './documents/listing';
 import trading from './documents/trading';
 import regulatory from './documents/regulatory';
+import teamMemberDoc from './documents/teamMember';
 
 // Object schemas
 import blockContent from './objects/blockContent';
@@ -33,6 +34,8 @@ import podcastPlayer from './objects/podcastPlayer';
 import regulationModule from './objects/regulationModule';
 import documentCategory from './objects/documentCategory';
 import regulationItem from './objects/documentItem';
+import threeColumnSection from './objects/threeColumnSection';
+import sectionHeading from './objects/sectionHeading';
 
 export const schemaTypes = [
 	// Document types
@@ -53,6 +56,7 @@ export const schemaTypes = [
 	listing,
 	trading,
 	regulatory,
+	teamMemberDoc,
 	// Object types
 	hero,
 	imageSection,
@@ -69,4 +73,6 @@ export const schemaTypes = [
 	regulationItem,
 	regulationModule,
 	documentCategory,
+	threeColumnSection,
+	sectionHeading,
 ];
