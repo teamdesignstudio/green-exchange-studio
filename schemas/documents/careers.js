@@ -41,94 +41,12 @@ export default {
 			title: 'Column Section',
 			type: 'threeColumnSection',
 		},
-		// Your Impact Section
-		// {
-		// 	name: 'yourImpactSubtitle',
-		// 	type: 'string',
-		// 	title: 'Subtitle',
-		// 	fieldset: 'yourImpact',
-		// },
-		// {
-		// 	name: 'yourImpactTitle',
-		// 	type: 'string',
-		// 	title: 'Title',
-		// 	fieldset: 'yourImpact',
-		// },
-		// {
-		// 	name: 'yourImpactBody',
-		// 	type: 'text',
-		// 	title: 'Body Text',
-		// 	fieldset: 'yourImpact',
-		// },
-		// {
-		// 	name: 'yourImpactImage',
-		// 	type: 'image',
-		// 	title: 'Impact Image',
-		// 	fieldset: 'yourImpact',
-		// 	options: {
-		// 		hotspot: true,
-		// 	},
-		// 	fields: [
-		// 		{
-		// 			name: 'alt',
-		// 			type: 'string',
-		// 			title: 'Alternative text',
-		// 			description: 'Important for SEO and accessibility',
-		// 		},
-		// 	],
-		// },
-		// {
-		// 	name: 'yourImpactLink',
-		// 	type: 'url',
-		// 	title: 'Link',
-		// 	fieldset: 'yourImpact',
-		// },
-
-		// Why Work at GIX Section
-		// {
-		// 	name: 'whyWorkIntroText',
-		// 	type: 'text',
-		// 	title: 'Introduction Text',
-		// 	fieldset: 'whyWork',
-		// },
-		// {
-		// 	name: 'whyWorkTitle',
-		// 	type: 'string',
-		// 	title: 'Section Title',
-		// 	fieldset: 'whyWork',
-		// },
-		// {
-		// 	name: 'whyWorkReasons',
-		// 	type: 'array',
-		// 	title: 'Reasons to Work at GIX',
-		// 	fieldset: 'whyWork',
-		// 	of: [
-		// 		{
-		// 			type: 'text',
-		// 			title: 'Reason',
-		// 		},
-		// 	],
-		// },
-
-		// Join Our Team Section
-		// {
-		// 	name: 'joinTeamSubtitle',
-		// 	type: 'string',
-		// 	title: 'Subtitle',
-		// 	fieldset: 'joinTeam',
-		// },
-		// {
-		// 	name: 'joinTeamTitle',
-		// 	type: 'string',
-		// 	title: 'Title',
-		// 	fieldset: 'joinTeam',
-		// },
-		// {
-		// 	name: 'joinTeamLink',
-		// 	type: 'url',
-		// 	title: 'Link',
-		// 	fieldset: 'joinTeam',
-		// },
+		{
+			name: 'benefits',
+			title: 'Benefits',
+			type: 'array',
+			of: [{ type: 'block' }],
+		},
 		{
 			name: 'description',
 			type: 'text',
