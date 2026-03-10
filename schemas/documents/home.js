@@ -22,6 +22,7 @@ export default {
 		{
 			name: 'columnSectionOne',
 			type: 'threeColumnSection',
+			title: 'Column Section',
 		},
 		// {
 		// 	name: 'imageSectionOne',

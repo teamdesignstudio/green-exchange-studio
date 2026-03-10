@@ -2,6 +2,8 @@ export default {
 	type: 'object',
 	name: 'threeColumnSection',
 	title: 'Three Column Section',
+	description:
+		"Flexible columnar layout that changes based on how many text columns have content and whether or not there's an image",
 	fieldsets: [
 		{
 			name: 'extras',
