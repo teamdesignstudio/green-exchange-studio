@@ -22,6 +22,7 @@ const hiddenDocTypes = (listItem) =>
 		'trading',
 		'regulatory',
 		'teamMemberDoc',
+		'products',
 	].includes(listItem.getId());
 
 export const structure = structureTool({
@@ -33,6 +34,7 @@ export const structure = structureTool({
 			.items([
 				S.documentListItem().id('home').schemaType('home').title('Home'),
 				S.documentListItem().id('givingBack').schemaType('givingBack').title('About'),
+				S.documentListItem().id('products').schemaType('products').title('Products'),
 				S.documentListItem().id('news').schemaType('news').title('News'),
 				S.documentListItem().id('team').schemaType('team').title('Team'),
 				S.documentListItem().id('careers').schemaType('careers').title('Careers'),
