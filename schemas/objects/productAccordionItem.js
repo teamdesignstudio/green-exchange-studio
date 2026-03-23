@@ -20,6 +20,12 @@ export default {
 			of: [{ type: 'block' }],
 		},
 		{
+			name: 'hasDisclaimer',
+			title: 'Has Disclaimer',
+			type: 'boolean',
+			initialValue: false,
+		},
+		{
 			name: 'image',
 			title: 'Image',
 			type: 'image',
