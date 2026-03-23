@@ -36,6 +36,9 @@ import documentCategory from './objects/documentCategory';
 import regulationItem from './objects/documentItem';
 import threeColumnSection from './objects/threeColumnSection';
 import sectionHeading from './objects/sectionHeading';
+import productAccordion from './objects/productAccordion';
+import productAccordionItem from './objects/productAccordionItem';
+import products from './documents/products';
 
 export const schemaTypes = [
 	// Document types
@@ -75,4 +78,7 @@ export const schemaTypes = [
 	documentCategory,
 	threeColumnSection,
 	sectionHeading,
+	productAccordion,
+	productAccordionItem,
+	products,
 ];
